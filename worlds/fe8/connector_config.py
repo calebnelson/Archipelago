@@ -94,12 +94,68 @@ items = [
   ("ElysianWhip", 32),
   ("OceanSeal", 33),
   ("MasterSeal", 34),
+  ("Deploy Seth", 35),
+  ("Deploy Franz", 36),
+  ("Deploy Gilliam", 37),
+  ("Deploy Vanessa", 38),
+  ("Deploy Moulder", 39),
+  ("Deploy Ross", 40),
+  ("Deploy Garcia", 41),
+  ("Deploy Neimi", 42),
+  ("Deploy Colm", 43),
+  ("Deploy Artur", 44),
+  ("Deploy Lute", 45),
+  ("Deploy Natasha", 46),
+  ("Deploy Joshua", 47),
+  ("Deploy Forde", 48),
+  ("Deploy Kyle", 49),
+  ("Deploy Tana", 50),
+  ("Deploy Amelia", 51),
+  ("Deploy Innes", 52),
+  ("Deploy Gerik", 53),
+  ("Deploy Tethys", 54),
+  ("Deploy Marisa", 55),
+  ("Deploy L'Arachel", 56),
+  ("Deploy Dozla", 57),
+  ("Deploy Saleh", 58),
+  ("Deploy Ewan", 59),
+  ("Deploy Cormag", 60),
+  ("Deploy Rennac", 61),
+  ("Deploy Duessel", 62),
+  ("Deploy Knoll", 63),
+  ("Deploy Myrrh", 64),
+  ("Deploy Syrene", 65),
+  ("Progressive Seth Deployment", 66),
+  ("Paladin Promotion", 67),
+  ("General Promotion", 68),
+  ("Hero Promotion", 69),
+  ("Swordmaster Promotion", 70),
+  ("Assassin Promotion", 71),
+  ("Sniper Promotion", 72),
+  ("Ranger Promotion", 73),
+  ("Wyvern Lord Promotion", 74),
+  ("Wyvern Knight Promotion", 75),
+  ("Sage Promotion", 76),
+  ("Mage Knight Promotion", 77),
+  ("Bishop Promotion", 78),
+  ("Druid Promotion", 79),
+  ("Summoner Promotion", 80),
+  ("Rogue Promotion", 81),
+  ("Great Knight Promotion", 82),
+  ("Warrior Promotion", 83),
+  ("Berserker Promotion", 84),
+  ("Falcon Knight Promotion", 85),
+  ("Valkyrie Promotion", 86),
+  ("Journeyman Promotion", 87),
+  ("Pupil Promotion", 88),
+  ("Recruit Promotion", 89),
 ]
-SLOT_NAME_ADDR = 0x8EFD5C4
-SUPER_DEMON_KING_OFFS = 0xEFD604
-LOCKPICK_USABILITY_OFFS = 0xEFD604+1
-DEATH_LINK_KIND_OFFS = 0xEFD604+2
-LOCATION_INFO_OFFS = 0xEFD608
+SLOT_NAME_ADDR = 0x8EFDE38
+SUPER_DEMON_KING_OFFS = 0xEFDE78
+LOCKPICK_USABILITY_OFFS = 0xEFDE78+1
+DEATH_LINK_KIND_OFFS = 0xEFDE78+2
+PROMOTION_UNLOCKS_OFFS = 0xEFDE78+3
+LOCATION_INFO_OFFS = 0xEFDF74
 LOCATION_INFO_SIZE = 4
 ARCHIPELAGO_RECEIVED_ITEM_ADDR = 0x2026E38
 ARCHIPELAGO_NUM_RECEIVED_ITEMS_ADDR = 0x2026E3C
@@ -109,4 +165,4 @@ ARCHIPELAGO_DEATHLINK_READY = 0x2027066
 FLAGS_ADDR = 0x2026E30
 FLAGS_SIZE = 8
 
-EXPECTED_ROM_NAME = "FE8AP120DC35431F"
+EXPECTED_ROM_NAME = "FE8APBF7BD3D8EE1"

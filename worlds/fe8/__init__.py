@@ -188,9 +188,47 @@ class FE8World(World):
                     ),
                 )
 
-        # We shuffle here to ensure that level caps and weapon levels come before
-        # holy weapons in `other_weapons`.
+        # Shuffle the level caps and weapon levels together. As the
+        # lowest-priority filler, these are dropped first when there are not
+        # enough locations, so they come before everything else in `other_items`
+        # (which is filled from the back).
         self.random.shuffle(other_items)
+
+        # Deploy permits and promotion unlocks are shuffled together and placed
+        # after the level caps and weapon levels but before the holy weapons, so
+        # they are kept in preference to level caps / weapon levels but dropped
+        # before holy weapons when locations are scarce.
+        permit_promo_start = len(other_items)
+
+        if self.options.recruit_checks_enabled:
+            progressive_seth = bool(self.options.progressive_seth_deployment)
+            # With smooth deployments, region exits and the Knoll/Myrrh recruit
+            # checks have rules counting deploy permits, so the permits must be
+            # progression for fill logic to see them.
+            deploy_classification = (
+                ItemClassification.progression
+                if self.options.smooth_deployments
+                else ItemClassification.useful
+            )
+            for name, _ in items:
+                if name == "Deploy Seth":
+                    if not progressive_seth:
+                        register(name, deploy_classification)
+                elif name == "Progressive Seth Deployment":
+                    if progressive_seth:
+                        for _ in range(4):
+                            register(name, deploy_classification)
+                elif "Deploy" in name:
+                    register(name, deploy_classification)
+
+        if self.options.promotion_unlocks:
+            for name, _ in items:
+                if name.endswith(" Promotion"):
+                    register(name, ItemClassification.useful)
+
+        permit_promo = other_items[permit_promo_start:]
+        self.random.shuffle(permit_promo)
+        other_items[permit_promo_start:] = permit_promo
 
         holy_weapons = [name for name in HOLY_WEAPONS.keys()]
         self.random.shuffle(holy_weapons)
